@@ -2,494 +2,809 @@
 <html lang="en-GB">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Stock Saver Card — GCM Thermal</title>
-<meta name="description" content="The 60-second daily walk-round, the 5 warning signs, and the emergency plan for the night a unit dies. Free from GCM Thermal — we screen, we don't sell parts.">
-<meta name="theme-color" content="#ff5906">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23ff5906'/><text x='50' y='70' font-family='Arial,sans-serif' font-size='60' font-weight='900' fill='white' text-anchor='middle'>G</text></svg>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCM Thermal — Build your protection plan</title>
+<meta name="description" content="Watchdog Cold Chain Cover from £30/month — full thermal scan, Logbook emailed monthly, QR codes on fridges, door wipe + spray, maintenance reminders and your savings page, everything included. Or start with the £95 one-off audit. Independent, no contract, no pressure.">
+<meta name="theme-color" content="#090d25">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23090d25'/><text x='50' y='70' font-family='Arial,sans-serif' font-size='60' font-weight='900' fill='%23c98570' text-anchor='middle'>G</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&family=Nunito+Sans:wght@400;600;800;1000&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#ff5906; --surface:rgba(0,0,0,.14); --ink:#fff; --muted:rgba(255,255,255,.78); --faint:rgba(255,255,255,.60);
-    --line:rgba(255,255,255,.22); --gold:#c8fd03; --gold-ink:#1f1c0a;
-    --red:#c62f21; --red-dark:#8f1d13; --red-bg:#b3261e;
+    --bg:#090d25; --surface:rgba(60,46,68,.45); --ink:#ffffff; --muted:rgba(255,255,255,.78); --faint:rgba(255,255,255,.60);
+    --line:rgba(255,255,255,.22); --line-soft:rgba(255,255,255,.12);
+    --gold:#c98570; --gold-dark:#e0a58e;
     --radius:16px; --radius-sm:10px;
-    --shadow-sm:0 1px 2px rgba(90,25,0,.18), 0 1px 6px rgba(90,25,0,.12);
-    --shadow-md:0 2px 4px rgba(90,25,0,.18), 0 10px 30px rgba(90,25,0,.22);
+    --shadow-sm:0 1px 2px rgba(2,4,18,.35), 0 1px 6px rgba(2,4,18,.25);
+    --shadow-md:0 2px 4px rgba(2,4,18,.35), 0 10px 30px rgba(2,4,18,.45);
+    --shadow-lg:0 4px 10px rgba(2,4,18,.40), 0 24px 60px rgba(2,4,18,.60);
     --ease:cubic-bezier(.22,.61,.36,1);
-    --sans:'Arimo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    --sans:'Arimo','Nunito Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
     --serif:'Nunito Sans','Arimo',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
   }
-  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;
-    -webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:92px;}
-  ::selection{background:var(--gold);color:var(--gold-ink);}
-  .wrap{max-width:640px;margin:0 auto;padding:0 14px;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;padding-bottom:96px;}
+  body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+    background-size:44px 44px;}
+  ::selection{background:var(--gold);color:#0b0c1c;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px;position:relative;}
   h1,h2,h3{font-family:var(--serif);line-height:1.15;letter-spacing:-.015em;}
+  .sub{color:var(--muted);max-width:640px;margin-top:12px;font-size:1.02rem;}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(9,13,37,.90);
+    backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);
+    border-bottom:1px solid var(--line-soft);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.02rem;text-decoration:none;color:var(--ink);}
+  .brand .mark{width:26px;height:26px;border-radius:8px;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;color:#0b0c1c;font-size:14px;font-weight:900;box-shadow:var(--shadow-sm);}
+  .nav a.back{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:600;}
+  .nav a.back:hover{color:#fff;}
 
   /* ---------- header ---------- */
-  header{padding:26px 0 18px;}
-  .brandrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-  .brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:.95rem;}
-  .brand .mark{width:26px;height:26px;border-radius:8px;background:var(--gold);color:var(--gold-ink);
-    display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;box-shadow:var(--shadow-sm);}
-  header .tel{color:var(--muted);text-decoration:none;font-size:.9rem;font-weight:700;}
-  header h1{font-size:clamp(1.6rem,6vw,2.2rem);font-weight:1000;}
-  header .lede{color:var(--muted);margin-top:8px;font-size:.98rem;max-width:540px;}
-  header .lede b{color:var(--gold);}
+  .head{padding:52px 0 10px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;color:#0b0c1c;background:var(--gold);border:1px solid transparent;
+    padding:6px 14px;border-radius:999px;margin-bottom:22px;}
+  .head h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:800;max-width:760px;}
+  .head .lede{color:var(--muted);max-width:640px;margin:14px auto 0 0;font-size:1.05rem;}
 
-  /* ---------- tabs ---------- */
-  .tab{display:none;padding-top:16px;}
-  .tab.on{display:block;animation:fade .3s var(--ease);}
-  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  /* ---------- progress ---------- */
+  .progress{display:flex;gap:8px;margin:30px 0 8px;}
+  .pstep{flex:1;}
+  .pstep .bar{height:4px;border-radius:99px;background:rgba(0,0,0,.18);overflow:hidden;}
+  .pstep .bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width .4s var(--ease);}
+  .pstep.done .bar i{width:100%;}
+  .pstep .lb{font-size:.72rem;font-weight:700;color:var(--faint);margin-top:6px;letter-spacing:.04em;text-transform:uppercase;}
+  .pstep.done .lb,.pstep.now .lb{color:#fff;}
 
+  /* ---------- steps ---------- */
+  .step{display:none;padding:30px 0 10px;}
+  .step.on{display:block;animation:fade .35s var(--ease);}
+  @keyframes fade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+  .step h2{font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;}
+  .step .sub{margin-bottom:26px;}
+  .err{display:none;color:#fff;background:rgba(0,0,0,.30);border:1px solid rgba(255,255,255,.35);
+    border-radius:999px;padding:8px 16px;font-size:.85rem;font-weight:700;margin-top:18px;width:max-content;}
+
+  /* ---------- service cards ---------- */
+  .svc-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .svc{position:relative;background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);
+    padding:24px 20px 20px;cursor:pointer;transition:all .2s var(--ease);text-align:left;color:var(--ink);
+    font:inherit;box-shadow:var(--shadow-sm);}
+  .svc:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:rgba(255,255,255,.45);}
+  .svc .art{display:flex;justify-content:center;margin-bottom:16px;}
+  .svc .art svg{width:100%;max-width:150px;height:auto;display:block;}
+  .svc .ttl{font-size:1.02rem;font-weight:800;margin-bottom:2px;}
+  .svc .pr{font-family:var(--serif);font-size:1.3rem;font-weight:800;color:var(--gold);margin:6px 0 8px;}
+  .svc .pr small{font-size:.72rem;color:var(--muted);font-weight:600;}
+  .svc .d{display:block;color:var(--muted);font-size:.86rem;}
+  .svc .deal{display:block;margin-top:8px;font-size:.76rem;font-weight:800;color:var(--gold);letter-spacing:.02em;}
+  .svc .badge{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;
+    background:var(--gold);color:#0b0c1c;font-weight:900;font-size:1rem;display:flex;align-items:center;justify-content:center;
+    opacity:0;transform:scale(.5);transition:all .2s var(--ease);box-shadow:0 2px 10px rgba(2,4,18,.35);}
+  .svc.sel{border-color:var(--gold);background:rgba(201,133,112,.12);box-shadow:0 0 0 4px rgba(201,133,112,.12),var(--shadow-md);}
+  .svc.sel .badge{opacity:1;transform:scale(1);}
+  .bundle{display:none;margin-top:16px;background:rgba(201,133,112,.14);border:1px solid rgba(201,133,112,.55);
+    border-radius:var(--radius);padding:16px 20px;font-size:.92rem;box-shadow:var(--shadow-sm);}
+  .bundle.show{display:flex;gap:12px;align-items:flex-start;animation:fade .3s var(--ease);}
+  .bundle .bx{width:26px;height:26px;border-radius:8px;background:var(--gold);color:#0b0c1c;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-weight:900;font-size:.85rem;margin-top:2px;}
+  .bundle b{color:var(--gold-dark);}
+
+  /* ---------- unit counters ---------- */
   .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
-    padding:18px;box-shadow:var(--shadow-sm);margin-bottom:14px;}
-  .panel h2{font-size:1.15rem;font-weight:800;margin-bottom:2px;}
-  .panel .sub{color:var(--muted);font-size:.86rem;margin-bottom:12px;}
+    padding:24px;box-shadow:var(--shadow-sm);}
+  .types{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+  .ctype{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:12px;min-width:0;
+    display:flex;align-items:center;justify-content:space-between;gap:8px;box-shadow:var(--shadow-sm);}
+  .ctype .nm{font-size:.82rem;font-weight:700;line-height:1.2;overflow-wrap:anywhere;}
+  .ctype .ctl{display:flex;align-items:center;gap:6px;}
+  .ctype button{width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.30);background:rgba(255,255,255,.10);
+    font-size:1.05rem;font-weight:700;color:#fff;cursor:pointer;line-height:1;
+    display:flex;align-items:center;justify-content:center;transition:all .15s var(--ease);}
+  .ctype button:hover{background:var(--gold);color:#0b0c1c;border-color:transparent;}
+  .ctype .cnt{min-width:20px;text-align:center;font-weight:800;}
+  .unit-total{margin-top:16px;font-size:.95rem;color:var(--muted);}
+  .unit-total b{color:#fff;font-family:var(--serif);font-size:1.25rem;}
+  .fld{margin-top:18px;}
+  .fld label{display:block;font-size:.78rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--faint);margin-bottom:8px;}
+  .fld input,.fld select{width:100%;background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.28);border-radius:12px;
+    padding:12px 14px;color:#fff;font:inherit;font-size:.95rem;outline:none;transition:border .15s var(--ease);}
+  .fld input::placeholder{color:rgba(255,255,255,.45);}
+  .fld input:focus,.fld select:focus{border-color:var(--gold);}
+  .fld select option{color:#262220;background:#fff;}
+  .fld .hint{font-size:.78rem;color:var(--faint);margin-top:6px;}
 
-  .progress{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-  .progress .bar{flex:1;height:6px;border-radius:99px;background:rgba(0,0,0,.22);overflow:hidden;}
-  .progress .bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:99px;transition:width .3s var(--ease);}
-  .progress .lbl{font-size:.8rem;font-weight:800;color:var(--gold);white-space:nowrap;}
+  /* ---------- question blocks ---------- */
+  .qblock{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px;box-shadow:var(--shadow-sm);margin-top:14px;}
+  .qblock.hide{display:none;}
+  .qblock.miss{border-color:rgba(255,255,255,.85);background:rgba(0,0,0,.24);box-shadow:0 0 0 3px rgba(255,255,255,.15),var(--shadow-sm);}
+  .qblock .qt{font-size:1rem;font-weight:800;margin-bottom:4px;}
+  .qblock .qs{font-size:.85rem;color:var(--muted);margin-bottom:14px;}
+  .svc-mini{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:800;letter-spacing:.06em;
+    text-transform:uppercase;color:#0b0c1c;background:var(--gold);border-radius:999px;padding:4px 12px;margin-bottom:12px;}
+  .opts{display:flex;gap:8px;flex-wrap:wrap;}
+  .opt{border:1px solid rgba(255,255,255,.30);background:rgba(0,0,0,.16);color:#fff;border-radius:999px;
+    padding:9px 18px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:inherit;transition:all .15s var(--ease);}
+  .opt:hover{border-color:rgba(255,255,255,.55);}
+  .opt.on{background:var(--gold);color:#0b0c1c;border-color:transparent;box-shadow:0 2px 10px rgba(2,4,18,.30);}
 
-  /* checklist rows */
-  .chk{display:flex;gap:12px;align-items:flex-start;background:rgba(0,0,0,.16);border:1px solid var(--line);
-    border-radius:12px;padding:12px 12px 12px 10px;margin-bottom:8px;cursor:pointer;transition:all .15s var(--ease);}
-  .chk:active{transform:scale(.99);}
-  .chk .box{flex-shrink:0;width:26px;height:26px;border-radius:8px;border:2px solid rgba(255,255,255,.4);
-    display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:900;color:var(--gold-ink);margin-top:1px;}
-  .chk.done{border-color:var(--gold);background:rgba(200,253,3,.10);}
-  .chk.done .box{background:var(--gold);border-color:var(--gold);}
-  .chk.done .t{text-decoration:line-through;text-decoration-thickness:2px;color:var(--muted);}
-  .chk .t{font-weight:800;font-size:.92rem;line-height:1.3;}
-  .chk .d{color:var(--muted);font-size:.8rem;margin-top:2px;line-height:1.45;}
+  /* ---------- summary ---------- */
+  .sum-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:8px;}
+  .sum-lines{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);}
+  .sum-lines h3{font-size:1rem;font-weight:800;margin-bottom:14px;}
+  .sline{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.92rem;}
+  .sline:last-of-type{border-bottom:none;}
+  .sline .n{color:var(--muted);}
+  .sline .v{font-weight:800;white-space:nowrap;}
+  .sline .v.free{color:var(--gold);}
+  .sline.save .n,.sline.save .v{color:var(--gold);}
+  .price-box{background:rgba(201,133,112,.14);border:1px solid rgba(201,133,112,.55);border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow-sm);}
+  .price-box .lab{font-size:.76rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);}
+  .price-box .big{font-family:var(--serif);font-size:2.3rem;font-weight:800;color:var(--gold);letter-spacing:-.02em;line-height:1.1;}
+  .price-box .mo{font-family:var(--serif);font-size:1.25rem;font-weight:800;margin-top:2px;}
+  .price-box .note{font-size:.82rem;color:var(--muted);margin-top:10px;}
+  .recap{margin-top:16px;font-size:.85rem;color:var(--muted);}
+  .recap b{color:#fff;}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px;}
+  .form-grid .fld{margin-top:0;}
+  .ctas{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;}
+  .btn{font:inherit;font-size:14px;font-weight:700;cursor:pointer;border-radius:var(--radius-sm);
+    padding:12px 24px;border:1px solid transparent;transition:all .2s var(--ease);text-decoration:none;display:inline-block;}
+  .btn.primary{background:linear-gradient(180deg,#d9957f,#b16e5d);color:#0b0c1c;
+    box-shadow:0 1px 2px rgba(0,0,0,.15),0 6px 18px rgba(166,54,31,.40),inset 0 1px 0 rgba(255,255,255,.45);}
+  .btn.primary:hover{background:#d9957f;transform:translateY(-1px);}
+  .btn.ghost{background:rgba(0,0,0,.10);border-color:rgba(255,255,255,.40);color:#fff;box-shadow:var(--shadow-sm);}
+  .btn.ghost:hover{border-color:rgba(255,255,255,.70);}
+  .guarantee{margin-top:22px;background:rgba(0,0,0,.14);border:1px solid rgba(201,133,112,.50);
+    border-radius:var(--radius);padding:18px 22px;display:flex;gap:14px;align-items:center;box-shadow:var(--shadow-sm);}
+  .guarantee .tick{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    background:var(--gold);color:#0b0c1c;font-size:1.15rem;font-weight:800;box-shadow:0 4px 14px rgba(166,54,31,.40);}
+  .guarantee p{font-size:.92rem;}
+  .copied{display:none;font-size:.82rem;font-weight:700;color:var(--gold);margin-top:10px;}
+  .consent{margin-top:14px;font-size:.78rem;color:var(--faint);max-width:560px;}
+  .fld input.invalid{border-color:rgba(255,255,255,.9);box-shadow:0 0 0 3px rgba(255,255,255,.15);}
 
-  .note{font-size:.78rem;color:var(--faint);line-height:1.5;margin-top:10px;}
-  .note b{color:var(--muted);}
-  .crossline{background:rgba(200,253,3,.10);border:1px dashed rgba(200,253,3,.5);border-radius:12px;
-    padding:12px 14px;font-size:.84rem;color:var(--ink);line-height:1.5;margin-top:14px;}
-  .crossline b{color:var(--gold);}
+  /* ---------- dock ---------- */
+  .dock{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(60,46,68,.92);
+    backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);
+    border-top:1px solid rgba(255,255,255,.22);box-shadow:0 -8px 30px rgba(2,4,18,.45);}
+  .dock.off{display:none;}
+  .dock .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;height:74px;}
+  .dock .total{font-size:.9rem;color:var(--muted);}
+  .dock .total b{font-family:var(--serif);font-size:1.35rem;font-weight:800;color:#fff;}
+  .dock .total .mo{color:var(--gold);font-weight:800;}
+  .dock .btns{display:flex;gap:10px;}
+  .dock .btn{padding:10px 20px;}
 
-  /* warning signs list */
-  .signs{counter-reset:sign;}
-  .sign{display:flex;gap:10px;padding:9px 0;border-top:1px solid rgba(255,255,255,.12);font-size:.9rem;}
-  .sign:first-child{border-top:none;}
-  .sign::before{counter-increment:sign;content:counter(sign);flex-shrink:0;width:24px;height:24px;border-radius:50%;
-    background:var(--gold);color:var(--gold-ink);font-weight:900;font-size:.8rem;display:flex;align-items:center;justify-content:center;margin-top:1px;}
-  .sign b{color:var(--gold);}
-
-  /* ---------- emergency tab ---------- */
-  #tab-sos .hero{background:var(--red-bg);border:2px solid rgba(255,255,255,.35);border-radius:var(--radius);
-    padding:18px;box-shadow:var(--shadow-md);}
-  #tab-sos .hero h2{font-size:1.35rem;font-weight:1000;color:#fff;}
-  #tab-sos .hero .sub{color:rgba(255,255,255,.85);font-size:.88rem;margin:4px 0 14px;}
-  .callrow{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-  .btn{display:flex;align-items:center;justify-content:center;gap:8px;border-radius:12px;padding:14px 10px;
-    font:inherit;font-size:.9rem;font-weight:800;text-decoration:none;cursor:pointer;border:none;
-    background:var(--gold);color:var(--gold-ink);box-shadow:var(--shadow-sm);}
-  .btn.ghost{background:rgba(0,0,0,.25);color:#fff;border:1px solid rgba(255,255,255,.4);}
-  .btn.big{width:100%;font-size:1.05rem;padding:16px;}
-  .sos-step{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.25);border-radius:12px;
-    padding:14px;margin-bottom:10px;}
-  .sos-step .n{display:inline-flex;width:26px;height:26px;border-radius:50%;background:#fff;color:var(--red-bg);
-    font-weight:900;font-size:.85rem;align-items:center;justify-content:center;margin-bottom:6px;}
-  .sos-step .t{font-weight:800;font-size:1rem;color:#fff;}
-  .sos-step .d{color:rgba(255,255,255,.88);font-size:.85rem;margin-top:3px;line-height:1.5;}
-  .sos-step .d b{color:var(--gold);}
-  .eng-setup{margin-top:12px;}
-  .eng-setup input{width:100%;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.4);border-radius:12px;
-    padding:12px 14px;color:#fff;font:inherit;font-size:1rem;outline:none;}
-  .eng-setup input:focus{border-color:var(--gold);}
-  .eng-setup input::placeholder{color:rgba(255,255,255,.5);}
-  .eng-setup .hint{font-size:.75rem;color:rgba(255,255,255,.75);margin-top:6px;}
-
-  /* ---------- card/print tab ---------- */
-  .preview-shell{background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:var(--radius);
-    padding:10px;overflow:auto;}
-  #cardHolder{width:100%;height:430px;overflow:hidden;position:relative;border-radius:8px;background:#fff;}
-  #printCard{position:absolute;top:0;left:0;transform-origin:top left;}
-
-  /* ---------- tab bar ---------- */
-  .tabbar{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(90,25,0,.92);
-    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.18);
-    padding-bottom:env(safe-area-inset-bottom);}
-  .tabbar .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;padding:6px 8px;}
-  .tabbar button{background:none;border:none;color:var(--muted);font:inherit;font-size:.66rem;font-weight:800;
-    display:flex;flex-direction:column;align-items:center;gap:3px;padding:7px 2px;border-radius:10px;cursor:pointer;}
-  .tabbar button .ic{font-size:1.25rem;line-height:1;}
-  .tabbar button.on{color:var(--gold);background:rgba(200,253,3,.12);}
-
-  footer.site{color:var(--faint);font-size:.72rem;line-height:1.5;padding:8px 0 20px;}
-
-  /* ================= PRINT CARD (A4) ================= */
-  #printCard{display:none;width:190mm;background:#fff;color:#111;font-family:var(--sans);}
-  #tab-card.on #printCard{display:block;}
-  .pc-head{display:flex;justify-content:space-between;align-items:center;gap:8mm;
-    background:#ff5906;color:#fff;padding:5mm 6mm;border-radius:3mm;}
-  .pc-head .t{font-family:var(--serif);font-weight:1000;font-size:15pt;letter-spacing:-.02em;}
-  .pc-head .t small{display:block;font-size:6.5pt;font-weight:600;color:#ffe4d4;letter-spacing:.04em;text-transform:uppercase;}
-  .pc-head .tel{font-size:11pt;font-weight:800;text-align:right;line-height:1.3;}
-  .pc-head .tel small{display:block;font-size:6.5pt;font-weight:600;color:#ffe4d4;}
-  .pc-sos{border:1.2mm solid #b3261e;border-radius:2.5mm;margin-top:3.5mm;overflow:hidden;}
-  .pc-sos .cap{background:#b3261e;color:#fff;font-weight:1000;font-size:10.5pt;padding:2.5mm 4mm;letter-spacing:.02em;}
-  .pc-sos .cap small{float:right;font-size:7pt;font-weight:600;padding-top:1.2mm;}
-  .pc-sos ol{margin:0;padding:2.5mm 4mm 2.5mm 9mm;}
-  .pc-sos li{font-size:8.2pt;line-height:1.45;padding:.9mm 0;}
-  .pc-sos li::marker{font-weight:1000;color:#b3261e;}
-  .pc-sos li b{font-weight:1000;}
-  .pc-cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm;margin-top:3.5mm;}
-  .pc-box{border:.4mm solid #d8d2cc;border-radius:2.5mm;padding:3mm 3.5mm;}
-  .pc-box .cap{font-weight:1000;font-size:9pt;color:#ff5906;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1.5mm;}
-  .pc-box ul{list-style:none;}
-  .pc-box ul li{font-size:8pt;line-height:1.42;padding:.9mm 0 .9mm 5.5mm;position:relative;}
-  .pc-box ul li::before{content:'';position:absolute;left:0;top:1.7mm;width:2.6mm;height:2.6mm;border:.35mm solid #999;border-radius:.7mm;}
-  .pc-box ul li b{font-weight:1000;}
-  .pc-signs ol{margin:0;padding-left:5mm;}
-  .pc-signs li{font-size:8pt;line-height:1.45;padding:.9mm 0;}
-  .pc-signs li::marker{font-weight:1000;color:#ff5906;}
-  .pc-signs li b{font-weight:1000;}
-  .pc-foot{display:flex;gap:4mm;align-items:center;margin-top:3.5mm;border-top:.4mm solid #d8d2cc;padding-top:3mm;}
-  .pc-qr{flex-shrink:0;width:22mm;height:22mm;border:.4mm dashed #bbb;border-radius:2mm;display:flex;align-items:center;justify-content:center;
-    text-align:center;font-size:6pt;color:#999;line-height:1.3;overflow:hidden;}
-  .pc-qr img{width:100%;height:100%;object-fit:contain;}
-  .pc-foot .mid{flex:1;font-size:7.6pt;line-height:1.5;color:#333;}
-  .pc-foot .mid b{font-size:9pt;color:#111;}
-  .pc-foot .mid .book{color:#b3261e;font-weight:800;}
-  .pc-fine{font-size:6.2pt;color:#888;line-height:1.45;margin-top:2.5mm;}
-
-  @media print{
-    @page{size:A4 portrait;margin:8mm;}
-    body{background:#fff;padding:0;}
-    body *{visibility:hidden;}
-    #printCard, #printCard *{visibility:visible;}
-    #printCard{display:block !important;position:absolute;left:0;top:0;transform:none !important;width:auto;}
+  /* ---------- responsive (mobile-first: base = phone) ---------- */
+  .head{padding:38px 0 6px;}
+  .svc-row{grid-template-columns:1fr;}
+  .svc{grid-template-columns:1fr;}
+  .svc .art{grid-row:auto;}
+  .svc .art svg{max-width:150px;}
+  .types{grid-template-columns:1fr 1fr;gap:8px;}
+  .ctype{padding:10px;flex-wrap:wrap;}
+  .ctype .ctl{margin-left:auto;}
+  .ctype button{width:36px;height:36px;}
+  .ctype .nm{font-size:.76rem;}
+  .sum-grid{grid-template-columns:1fr;}
+  .form-grid{grid-template-columns:1fr;}
+  .dock .total{font-size:.78rem;}
+  .dock .total b{font-size:1.1rem;}
+  .dock .btn{padding:9px 14px;font-size:12.5px;}
+  /* tablet and up */
+  @media (min-width:481px){
+    .head{padding:52px 0 10px;}
+    .svc{display:grid;grid-template-columns:96px 1fr;gap:4px 16px;align-items:center;padding:18px;}
+    .svc .art{grid-row:1 / span 5;margin-bottom:0;}
+    .svc .art svg{max-width:96px;}
+    .types{gap:10px;}
+    .ctype{padding:12px;}
+    .ctype .ctl{margin-left:0;}
+    .ctype button{width:30px;height:30px;}
+    .ctype .nm{font-size:.82rem;}
+    .dock .total{font-size:.9rem;}
+    .dock .total b{font-size:1.35rem;}
+    .dock .btn{padding:10px 20px;}
+  }
+  /* desktop */
+  @media (min-width:901px){
+    .svc-row{grid-template-columns:repeat(2,1fr);}
+    .svc{display:block;padding:24px 20px 20px;}
+    .svc .art{grid-row:auto;margin-bottom:16px;}
+    .svc .art svg{max-width:150px;}
+    .types{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;}
+    .sum-grid{grid-template-columns:1.15fr .85fr;}
+    .form-grid{grid-template-columns:1fr 1fr;}
   }
 </style>
 </head>
 <body>
 
-<header>
+<nav class="nav">
   <div class="wrap">
-    <div class="brandrow">
-      <div class="brand"><span class="mark">G</span><span id="brandName">GCM Thermal</span></div>
-      <a class="tel" id="hdrTel" href="#">call us</a>
-    </div>
-    <h1>Stock Saver Card</h1>
-    <p class="lede">The <b>60 seconds a day</b> that stops the £2,000 night — and the plan for the night it happens anyway.</p>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <!-- ============ DAILY ============ -->
-  <section class="tab" id="tab-daily">
-    <div class="panel">
-      <h2>The daily 60-second walk-round</h2>
-      <p class="sub">Open-up or close-down — same six looks, every day. Staff do it; you glance at the ticks.</p>
-      <div class="progress"><div class="bar"><i id="dailyBar"></i></div><span class="lbl" id="dailyLbl">0/6</span></div>
-      <div id="dailyList"></div>
-      <p class="note">Write the readings where you always do — if you're on our Logbook, that's the temp log, and it's the first thing EHO asks for. <b>Nothing you tick here leaves this phone.</b></p>
-    </div>
-    <div class="panel">
-      <h2>The 5 signs a unit's about to cost you</h2>
-      <p class="sub">Any one of these between our visits = book a scan. Drift is the early warning.</p>
-      <div class="signs" id="signsList"></div>
-      <div class="crossline" id="dailyCross"></div>
-    </div>
-  </section>
-
-  <!-- ============ WEEKLY ============ -->
-  <section class="tab" id="tab-weekly">
-    <div class="panel">
-      <h2>The weekly 5-minute check</h2>
-      <p class="sub">One quiet afternoon a week. Slower eyes, same rule: spot drift early.</p>
-      <div class="progress"><div class="bar"><i id="weeklyBar"></i></div><span class="lbl" id="weeklyLbl">0/5</span></div>
-      <div id="weeklyList"></div>
-      <p class="note"><b>Doors get our wipe + spray on every visit</b> — but live electricals are engineer territory: photo it, show them. That sheet is their job; catching it is yours.</p>
-      <div class="crossline"><b>Rather we did it?</b> Watchdog members can book the small jobs in — <a id="bookUsLink" href="#">send a text</a> and it's on the next visit's list. DIY with the guides above, or hand it over: your call, every job.</div>
-    </div>
-  </section>
-
-  <!-- ============ EMERGENCY ============ -->
-  <section class="tab" id="tab-sos">
-    <div class="hero">
-      <h2>🚨 Unit down or failing</h2>
-      <p class="sub">First 15 minutes, in order. You have more time than panic tells you.</p>
-      <a class="btn big" id="callEng" href="#">📞 Call my engineer</a>
-      <div class="callrow" style="margin-top:8px;">
-        <button class="btn ghost" id="setEngBtn" type="button">🔧 Set engineer's number</button>
-        <a class="btn ghost" id="textUs" href="#">💬 Text us — stuck</a>
-      </div>
-      <div class="eng-setup" id="engSetup" style="display:none;">
-        <input type="tel" id="engInput" placeholder="Your fridge engineer's number" inputmode="tel" autocomplete="tel">
-        <p class="hint">Saved on this phone only. The card dials <b>your</b> engineer — we don't do repairs, and we don't take a cut on parts.</p>
-      </div>
-    </div>
-    <div style="padding-top:14px;" id="sosList"></div>
-    <div class="crossline"><b>Why this card says "call your engineer":</b> we're the independent early-warning side — we don't sell parts and we don't do repairs. That's exactly why you can trust what the camera finds.</div>
-  </section>
-
-  <!-- ============ WIFI ============ -->
-  <section class="tab" id="tab-wifi">
-    <div class="panel">
-      <h2>Tonight's 3 router fixes</h2>
-      <p class="sub">Ten minutes, no IT person, no new kit. The three things we find in half the shops we walk into.</p>
-      <div id="wifiList"></div>
-      <p class="note">These ticks stick — done is done. If a step needs your IT person, it says so.</p>
-    </div>
-    <div class="crossline" id="wifiCross"></div>
-  </section>
-
-  <!-- ============ CARD / PRINT ============ -->
-  <section class="tab" id="tab-card">
-    <div class="panel">
-      <h2>Print the wall card</h2>
-      <p class="sub">One A4 sheet: the emergency plan, the daily six, the 5 signs, and the QR back to this page. Laminate it, tape it inside the walk-in door.</p>
-      <div class="preview-shell"><div id="cardHolder"><div id="printMount"></div></div></div>
-      <button class="btn big" id="printBtn" style="margin-top:12px;" type="button">🖨️ Print / Save as PDF (A4)</button>
-      <p class="note">From a phone, tap Share → Print, or open this page on any computer and hit the button. <b>Set the QR in the CONFIG block at the top of this file's script</b> — point it at this page's web address once it's hosted.</p>
-    </div>
-  </section>
-
-  <footer class="site" id="siteFoot"></footer>
-</main>
-
-<nav class="tabbar">
-  <div class="wrap">
-    <button data-tab="daily" class="on"><span class="ic">🧤</span>Daily</button>
-    <button data-tab="weekly"><span class="ic">🔍</span>Weekly</button>
-    <button data-tab="sos"><span class="ic">🚨</span>SOS</button>
-    <button data-tab="wifi"><span class="ic">📶</span>WiFi</button>
-    <button data-tab="card"><span class="ic">🖨️</span>Card</button>
+    <a class="brand" href="index2.html"><span class="mark">G</span>GCM Thermal</a>
+    <a class="back" href="index2.html">Back to main site</a>
   </div>
 </nav>
 
+<main class="wrap">
+  <header class="head">
+    <div class="eyebrow">Plan builder · 60 seconds</div>
+    <h1>Build your protection.</h1>
+    <p class="lede">Watchdog Cold Chain Cover from £30/month — the scan, the emailed Logbook, QR tags, door wipe + spray, maintenance reminders and your savings page, everything included. Or start with the £95 one-off audit. Answer a few questions and your price builds itself. Nothing gets ordered on this page.</p>
+    <div class="progress" id="prog">
+      <div class="pstep now"><div class="bar"><i></i></div><div class="lb">Services</div></div>
+      <div class="pstep"><div class="bar"><i></i></div><div class="lb">Your units</div></div>
+      <div class="pstep"><div class="bar"><i></i></div><div class="lb">Details</div></div>
+      <div class="pstep"><div class="bar"><i></i></div><div class="lb">Your plan</div></div>
+    </div>
+  </header>
+
+  <!-- ============ STEP 1 · SERVICES ============ -->
+  <section class="step on" id="step1">
+    <h2>What do you need?</h2>
+    <p class="sub">Monthly protection, the one-off deep audit — or both (the strongest start). Not ready for either? Text us for a <b style="color:#fff;">free 2-minute scan</b> of your worst unit.</p>
+
+    <div class="svc-row">
+      <button type="button" class="svc" data-svc="cover" aria-pressed="false">
+        <span class="badge">✓</span>
+        <span class="art" aria-hidden="true">
+          <svg viewBox="0 0 120 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="26" width="56" height="36" rx="8" stroke="#ffffff" stroke-width="2.5"/>
+            <circle cx="31" cy="44" r="12" stroke="#e0a58e" stroke-width="2.5"/>
+            <circle cx="31" cy="44" r="6" stroke="#e0a58e" stroke-width="2" opacity=".55"/>
+            <rect x="47" y="32" width="11" height="8" rx="2" stroke="#ffffff" stroke-width="2"/>
+            <path d="M74 30 q6 8 0 16 q-6 8 0 16" stroke="#e0a58e" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M86 26 q8 12 0 24 q-8 12 0 24" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+            <path d="M98 30 q6 8 0 16 q-6 8 0 16" stroke="#e0a58e" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </span>
+        <span class="ttl">Watchdog Cold Chain Cover</span>
+        <span class="pr">from £30 <small>/month</small></span>
+        <span class="d">Independent early-warning for fridge failures — and basic card-network risks. Every visit: full thermal scan of every unit, seal/gasket + condenser check, same-day photo report, door wipe + spray. All year: Logbook emailed monthly (backed up), QR code on every fridge, maintenance reminders, the maintenance page (DIY or book us) and your estimated-savings page.</span>
+        <span class="deal">Up to 5 fridges £30, scanned every 2 months · 10+ fridges £49, scanned monthly (+ SMS &amp; traffic light report) · +£5 per extra fridge</span>
+      </button>
+
+      <button type="button" class="svc" data-svc="audit" aria-pressed="false">
+        <span class="badge">✓</span>
+        <span class="art" aria-hidden="true">
+          <svg viewBox="0 0 120 84" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="30" y="14" width="60" height="60" rx="8" stroke="#ffffff" stroke-width="2.5"/>
+            <rect x="48" y="8" width="24" height="12" rx="4" stroke="#ffffff" stroke-width="2.5"/>
+            <line x1="42" y1="34" x2="78" y2="34" stroke="#ffffff" stroke-width="2" opacity=".7"/>
+            <line x1="42" y1="44" x2="72" y2="44" stroke="#ffffff" stroke-width="2" opacity=".45"/>
+            <rect x="44" y="66" width="8" height="6" fill="#e0a58e"/>
+            <rect x="56" y="60" width="8" height="12" fill="#e0a58e" opacity=".8"/>
+            <rect x="68" y="54" width="8" height="18" fill="#e0a58e" opacity=".6"/>
+          </svg>
+        </span>
+        <span class="ttl">Full Cold Chain Audit</span>
+        <span class="pr">£95 <small>one-off</small></span>
+        <span class="d">The same full scan of every unit, photographed, each fault costed in £/month — plus the engineer sheet and the Digital Logbook for 12 months included. The easy first step if you're not ready for monthly.</span>
+        <span class="deal">Find nothing, pay nothing</span>
+      </button>
+    </div>
+
+    <div class="bundle" id="bundle"></div>
+    <div class="err" id="err1">Choose Cover or the audit to continue.</div>
+  </section>
+
+  <!-- ============ STEP 2 · UNITS ============ -->
+  <section class="step" id="step2">
+    <h2>Your fridges &amp; freezers</h2>
+    <p class="sub">Tap the types you have. Your Cover price builds as you count — £30 covers your first 5 fridges, £49 covers your first 10 (scanned monthly), +£5 each in between.</p>
+    <div class="panel">
+      <div class="types" id="types"></div>
+      <div class="unit-total" id="unitTotal"></div>
+      <div class="fld">
+        <label for="makes">Makes &amp; models — optional</label>
+        <input type="text" id="makes" placeholder="e.g. 2× Dixell on the walk-ins, Foster upright from 2019…">
+        <div class="hint">Helpful but not required — we identify everything on the day.</div>
+      </div>
+    </div>
+    <div class="err" id="err2">Add at least one unit to continue.</div>
+  </section>
+
+  <!-- ============ STEP 3 · DETAILS ============ -->
+  <section class="step" id="step3">
+    <h2>A few quick questions</h2>
+    <p class="sub">So we turn up prepared. Answer what you know — "not sure" is a perfectly good answer.</p>
+
+    <div class="qblock" id="qThermal1">
+      <div class="svc-mini">Your visit</div>
+      <div class="qt">How old is your oldest unit?</div>
+      <div class="opts" data-q="oldest">
+        <button type="button" class="opt">Under 2 years</button>
+        <button type="button" class="opt">2–5 years</button>
+        <button type="button" class="opt">5–10 years</button>
+        <button type="button" class="opt">10+ years</button>
+        <button type="button" class="opt">No idea</button>
+      </div>
+    </div>
+
+    <div class="qblock" id="qThermal2">
+      <div class="svc-mini">Your visit</div>
+      <div class="qt">Anything you've noticed? <span style="font-weight:600;color:var(--muted);">(tap all that apply)</span></div>
+      <div class="opts" data-q="noticed" data-multi="1">
+        <button type="button" class="opt">Ice building up</button>
+        <button type="button" class="opt">Door won't seal</button>
+        <button type="button" class="opt">Runs constantly</button>
+        <button type="button" class="opt">Noisy</button>
+        <button type="button" class="opt">Nothing obvious</button>
+      </div>
+    </div>
+
+    <div class="qblock" id="qSec1">
+      <div class="svc-mini">Included security check</div>
+      <div class="qt">Is your card machine on the same Wi-Fi as everything else?</div>
+      <div class="qs">The one thing our visual check cares about most. "Not sure" is a perfectly good answer — that's what the visit is for.</div>
+      <div class="opts" data-q="wifi">
+        <button type="button" class="opt">Yes</button>
+        <button type="button" class="opt">No</button>
+        <button type="button" class="opt">Not sure</button>
+      </div>
+    </div>
+
+    <div class="qblock" id="qLog1">
+      <div class="svc-mini">Included Logbook</div>
+      <div class="qt">How do you record temperatures today?</div>
+      <div class="opts" data-q="logging">
+        <button type="button" class="opt">Paper clipboard</button>
+        <button type="button" class="opt">An app</button>
+        <button type="button" class="opt">Nothing regular</button>
+        <button type="button" class="opt">EHO asked for better</button>
+      </div>
+    </div>
+
+    <div class="err" id="err3">Please answer every question — "Not sure" and "Nothing obvious" count as answers.</div>
+  </section>
+
+  <!-- ============ STEP 4 · PLAN ============ -->
+  <section class="step" id="step4">
+    <h2>Your plan</h2>
+    <p class="sub">Everything you chose, priced. Book when you're ready — nothing is ordered on this page.</p>
+
+    <div class="sum-grid">
+      <div class="sum-lines">
+        <h3>What's included</h3>
+        <div id="sumServices"></div>
+        <div class="sline"><span class="n">Your units</span><span class="v" id="sumUnits">—</span></div>
+        <div id="sumDetails"></div>
+      </div>
+      <div>
+        <div class="price-box">
+          <div class="lab">Your monthly</div>
+          <div class="big" id="priceMonthly">£0</div>
+          <div class="mo" id="priceOnDay"></div>
+          <div class="note" id="priceNote"></div>
+        </div>
+        <div class="recap" id="recap"></div>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="fld"><label for="cName">Your name</label><input type="text" id="cName" placeholder="Alex" autocomplete="name"></div>
+      <div class="fld"><label for="cBiz">Business name</label><input type="text" id="cBiz" placeholder="The Corner Chippy" autocomplete="organization"></div>
+      <div class="fld"><label for="cPhone">Phone</label><input type="tel" id="cPhone" placeholder="07…" autocomplete="tel"></div>
+      <div class="fld"><label for="cEmail">Email</label><input type="email" id="cEmail" placeholder="you@yourbusiness.co.uk" autocomplete="email"></div>
+      <div class="fld"><label for="cPost">Postcode</label><input type="text" id="cPost" placeholder="G12…" autocomplete="postal-code"></div>
+      <div class="fld"><label for="cTime">Best time</label>
+        <select id="cTime">
+          <option>Weekday afternoon</option>
+          <option>Saturday morning</option>
+          <option>Evening</option>
+          <option>Any time</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ctas">
+      <button type="button" class="btn primary" id="sendBtn">Send my plan</button>
+      <a class="btn ghost" href="sms:+447307810460?body=Hi%2C%20I%20built%20a%20plan%20on%20your%20website.">Text instead — 07307 810460</a>
+      <button type="button" class="btn ghost" id="copyBtn">Copy my plan</button>
+      <button type="button" class="btn ghost" id="editBtn">Change my plan</button>
+    </div>
+    <div class="copied" id="copied"></div>
+    <p class="consent">We'll only use these details to contact you about your plan. No marketing lists, no passing your details on.</p>
+
+    <div class="guarantee" id="guarantee">
+      <div class="tick">✓</div>
+      <p><b>Find nothing, pay nothing.</b> If the full audit finds nothing worth acting on, you don't pay a penny. We don't sell parts or repairs — we have no reason to invent problems.</p>
+    </div>
+  </section>
+</main>
+
+<!-- ============ STICKY DOCK ============ -->
+<div class="dock" id="dock">
+  <div class="wrap">
+    <button type="button" class="btn ghost" id="backBtn" style="visibility:hidden;">Back</button>
+    <div class="total" id="dockTotal">Select a service</div>
+    <div class="btns">
+      <button type="button" class="btn primary" id="nextBtn">Continue</button>
+    </div>
+  </div>
+</div>
+
 <script>
-/* ============================================================
-   CONFIG — edit these, nothing else needs touching
-   ============================================================ */
-const CONFIG = {
-  business: "GCM Thermal",
-  phone:    "07307 810460",                       // shown in header + printed card (use format 07… or +44…)
-  bookingLink: "sms:+447307810460?body=Hi%2C%20I%20want%20the%20free%202-minute%20fridge%20scan.",  // or your booking/site URL
-  qrImage:  "",                                   // path to a QR image pointing at THIS page's hosted URL, e.g. "qr_stock_saver.png". Empty = dashed placeholder box.
-  pageUrl:  "",                                   // this page's public URL once hosted (used in the placeholder text)
-};
+(function(){
+  /* ==== EDIT HERE — the only numbers you'll ever need to change ==== */
+  var CONFIG = {
+    TIER1: 30,             // £/month, covers the first…
+    TIER1_UNITS: 5,        // …this many units (bi-monthly visits)
+    TIER2: 49,             // £/month, covers the first…
+    TIER2_UNITS: 10,       // …this many units (monthly visits)
+    EXTRA_PER_UNIT: 5,     // £/month for each additional unit
+    AUDIT: 95,             // one-off Full Cold Chain Audit, any number of units
+    FORMSPREE_ID: "xgakezyr" // Formspree endpoint — submissions email to you (free 50/mo at formspree.io)
+  };
+  /* ================================================================= */
 
-/* ============================================================
-   CONTENT — the phone app and the printed card render from
-   these same lists (single source of truth)
-   ============================================================ */
-const DAILY = [
-  { t:"Read every display",        d:"Fridge 0–5°C · freezer −18°C or below. Above that twice in a row = something's up." },
-  { t:"Listen",                    d:"Compressor kicking in every couple of minutes all day = struggling." },
-  { t:"Door lines",                d:"New ice or condensation along the seal = gasket going." },
-  { t:"Door tug test",             d:"Open a crack, let go — it should pull itself shut. Glides shut = suction lost." },
-  { t:"Floor",                     d:"Water or puddles near a unit = blocked drain or defrost fault." },
-  { t:"Overnight discipline",      d:"Nothing propped, no crates against doors, strip curtains hanging straight." },
-];
-const WEEKLY = [
-  { t:"Condenser grille",          d:"Back/bottom of the unit — visible dust or grease mat? Photo it for your engineer." },
-  { t:"Interior ice",              d:"Ice building on the back wall or around the fans faster than it used to." },
-  { t:"Airflow",                   d:"Stock pushed against the back wall or blocking vents = the unit fights itself." },
-  { t:"Hinges & gaskets",          d:"Torn seals, dropped doors, gaps you can see light through." },
-  { t:"Is the temp log actually filled?", d:"EHO asks for this first. An empty log turns a good kitchen into a bad report." },
-];
-const SIGNS = [
-  { t:"Ice or condensation back within days of a defrost.", d:"That's a seal or defrost fault, not bad luck." },
-  { t:"Compressor cycling much more than usual.",          d:"Listen at the same time each day to notice." },
-  { t:"Struggles in the afternoon, recovers overnight.",   d:"Failing to hold load — the step before failing." },
-  { t:"Cabinet sides running hot that used to be cool.",   d:"Condenser can't get rid of the heat." },
-  { t:"Electric creeping up, no new equipment.",           d:"Faults are expensive before they're fatal." },
-];
-const SOS = [
-  { t:"Stop opening the doors",       d:"Unopened holds cold for hours: chest freezer <b>24–48h</b> (full holds longer), upright <b>~24h</b>, fridge <b>~4h</b>. Every peek costs cold air — decide once, then act." },
-  { t:"Triage the stock",             d:"Frozen → other freezers first. High-value chilled → working fridges. Nowhere to move it? Blankets or insulated bags over it, doors shut." },
-  { t:"Burning smell or tripping power?", d:"Isolate it at the wall. Iced solid instead? A full defrost (4–8h) sometimes revives it — but find out <b>why</b> it iced. That's a fault, not bad luck." },
-  { t:"Call your engineer",           d:"Have a photo of the rating plate (sticker inside/on the side) — model and serial sorted in one glance." },
-  { t:"Photograph everything, now",   d:"Display reading, probe thermometer in the cabinet, the stock, the plate. <b>Dated photos are your insurance claim.</b>" },
-  { t:"The bin rule",                 d:"Chilled food above <b>8°C for 4+ hours</b>: photograph, then bin. High-risk food (cooked meats, dairy, rice) — stricter. Your food-safety pack has the final word." },
-  { t:"After the fix — verify it",    d:"Before you restock £1,000 of stock: a verification scan proves the repair holds temperature, camera before/after. <b>Don't pay twice for the same fault.</b>" },
-];
-const WIFI = [
-  { t:"Router admin password still the default?", d:"\"admin\", \"password\", or the sticker on the box = change it tonight. Router app, or type 192.168.0.1 / 192.168.1.1 in a browser. 10 minutes." },
-  { t:"Staff and customers on the MAIN WiFi?",    d:"Move them to the GUEST network. Card machine and till stay on main. This one split is the biggest single fix in hospitality." },
-  { t:"Port forwarding / remote management on?",  d:"Router settings → anything listed that nobody asked for = leftovers from an old CCTV or an engineer long gone. Screenshot it, ask your IT person. Don't delete blind." },
-];
+  var TYPES = [
+    ["Walk-in chiller"], ["Walk-in freezer"], ["Upright fridge"], ["Upright freezer"],
+    ["Chest freezer"], ["Display / glass-door"], ["Under-counter"], ["Ice machine"]
+  ];
+  var SVC_NAMES = {cover:"Watchdog Cold Chain Cover (monthly)", audit:"Full Cold Chain Audit (one-off)"};
+  var state = {
+    services:{cover:false, audit:false},
+    counts:{}, makes:"", oldest:"", noticed:[], wifi:"", logging:""
+  };
+  TYPES.forEach(function(t){ state.counts[t[0]] = 0; });
 
-/* ============================================================
-   State (localStorage only — nothing leaves the phone)
-   ============================================================ */
-const store = {
-  get(k, fb){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : fb; }catch(e){ return fb; } },
-  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} },
-};
-const todayKey = () => new Date().toISOString().slice(0,10);
-const weekKey = () => { const d = new Date(); const t = new Date(d.getFullYear(), d.getMonth(), d.getDate() - ((d.getDay() + 6) % 7)); return t.getFullYear() + "-W" + Math.ceil((((t - new Date(t.getFullYear(),0,1)) / 864e5) + 1) / 7); };
+  var step = 1, LAST = 4;
+  var $ = function(id){ return document.getElementById(id); };
 
-function loadList(key, bucketKey, bucketVal){
-  const b = store.get(bucketKey, {});
-  return (b.k === bucketVal) ? (b.done || []) : [];
-}
-function toggleItem(el, key, bucketKey, bucketVal, i, barEl, lblEl, total){
-  let b = store.get(bucketKey, {});
-  if (b.k !== bucketVal) b = { k: bucketVal, done: [] };
-  const at = b.done.indexOf(i);
-  if (at >= 0) b.done.splice(at, 1); else b.done.push(i);
-  store.set(bucketKey, b);
-  el.classList.toggle('done', at < 0);
-  const n = b.done.length;
-  barEl.style.width = (n / total * 100) + '%';
-  lblEl.textContent = n + '/' + total + (n === total ? ' ✓' : '');
-}
-
-function buildChecklist(mountId, items, stateKey, bucketKey, bucketVal, barId, lblId){
-  const mount = document.getElementById(mountId), bar = document.getElementById(barId), lbl = document.getElementById(lblId);
-  const done = loadList(stateKey, bucketKey, bucketVal);
-  items.forEach((it, i) => {
-    const row = document.createElement('div');
-    row.className = 'chk' + (done.indexOf(i) >= 0 ? ' done' : '');
-    row.innerHTML = '<span class="box">' + (done.indexOf(i) >= 0 ? '✓' : '') + '</span><span><span class="t">' + it.t + '</span><br><span class="d">' + it.d + '</span></span>';
-    row.addEventListener('click', () => {
-      toggleItem(row, 'x', bucketKey, bucketVal, i, bar, lbl, items.length);
-      const box = row.querySelector('.box');
-      box.textContent = row.classList.contains('done') ? '✓' : '';
+  /* ---------- step 1: service cards ---------- */
+  function clearBlock(id){
+    var blk = $(id); if(!blk) return;
+    var grp = blk.querySelector('.opts'); if(!grp) return;
+    var q = grp.dataset.q;
+    state[q] = grp.dataset.multi ? [] : '';
+    grp.querySelectorAll('.opt').forEach(function(b){ b.classList.remove('on'); });
+    blk.classList.remove('miss');
+  }
+  document.querySelectorAll('.svc').forEach(function(card){
+    card.addEventListener('click', function(){
+      var s = card.dataset.svc;
+      state.services[s] = !state.services[s];
+      card.classList.toggle('sel', state.services[s]);
+      card.setAttribute('aria-pressed', state.services[s]);
+      if(!state.services.cover && !state.services.audit){
+        ['qThermal1','qThermal2','qSec1','qLog1'].forEach(clearBlock);
+      }
+      paint();
     });
-    mount.appendChild(row);
   });
-  bar.style.width = (done.length / items.length * 100) + '%';
-  lbl.textContent = done.length + '/' + items.length + (done.length === items.length ? ' ✓' : '');
-}
 
-/* ---------- render phone content ---------- */
-buildChecklist('dailyList', DAILY, null, 'ss_daily', todayKey(), 'dailyBar', 'dailyLbl');
-buildChecklist('weeklyList', WEEKLY, null, 'ss_weekly', weekKey(), 'weeklyBar', 'weeklyLbl');
+  /* ---------- step 2: unit counters ---------- */
+  var tEl = $('types');
+  TYPES.forEach(function(t){
+    var chip = document.createElement('div'); chip.className = 'ctype';
+    chip.innerHTML = '<div class="nm">' + t[0] + '</div>' +
+      '<div class="ctl"><button type="button" aria-label="remove ' + t[0] + '">−</button>' +
+      '<span class="cnt" data-t="' + t[0] + '">0</span>' +
+      '<button type="button" aria-label="add ' + t[0] + '">+</button></div>';
+    var btns = chip.querySelectorAll('button');
+    btns[0].addEventListener('click', function(){ state.counts[t[0]] = Math.max(0, state.counts[t[0]]-1); paint(); });
+    btns[1].addEventListener('click', function(){ state.counts[t[0]]++; paint(); });
+    tEl.appendChild(chip);
+  });
+  $('makes').addEventListener('input', function(){ state.makes = this.value; paint(); });
 
-document.getElementById('signsList').innerHTML =
-  SIGNS.map(s => '<div class="sign"><span><b>' + s.t + '</b> ' + s.d + '</span></div>').join('');
-document.getElementById('dailyCross').innerHTML =
-  'Ticks catch drift the eye misses; the camera catches what ticks can\'t — <b>that\'s the Watchdog visit</b>. Any amber sign above, <a href="' + CONFIG.bookingLink + '" style="color:var(--gold);font-weight:800;">book one</a>.';
-
-/* WiFi — persistent ticks */
-(() => {
-  const mount = document.getElementById('wifiList');
-  const done = store.get('ss_wifi_done', []);
-  WIFI.forEach((it, i) => {
-    const row = document.createElement('div');
-    row.className = 'chk' + (done.indexOf(i) >= 0 ? ' done' : '');
-    row.innerHTML = '<span class="box">' + (done.indexOf(i) >= 0 ? '✓' : '') + '</span><span><span class="t">' + it.t + '</span><br><span class="d">' + it.d + '</span></span>';
-    row.addEventListener('click', () => {
-      const at = done.indexOf(i);
-      if (at >= 0) done.splice(at, 1); else done.push(i);
-      store.set('ss_wifi_done', done);
-      row.classList.toggle('done');
-      row.querySelector('.box').textContent = row.classList.contains('done') ? '✓' : '';
+  /* ---------- step 3: question buttons ---------- */
+  document.querySelectorAll('.opts').forEach(function(group){
+    var q = group.dataset.q, multi = group.dataset.multi === "1";
+    var exclusives = ['Nothing obvious', 'Not sure'];
+    group.querySelectorAll('.opt').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        if(multi){
+          var i = state[q].indexOf(btn.textContent);
+          if(i >= 0){
+            state[q].splice(i,1); btn.classList.remove('on');
+          } else {
+            if(exclusives.indexOf(btn.textContent) >= 0){
+              /* exclusive escapes wipe the rest */
+              state[q].length = 0;
+              group.querySelectorAll('.opt.on').forEach(function(b){ b.classList.remove('on'); });
+            } else {
+              exclusives.forEach(function(x){
+                var j = state[q].indexOf(x);
+                if(j >= 0) state[q].splice(j,1);
+              });
+              group.querySelectorAll('.opt').forEach(function(b){
+                if(exclusives.indexOf(b.textContent) >= 0) b.classList.remove('on');
+              });
+            }
+            state[q].push(btn.textContent);
+            btn.classList.add('on');
+          }
+        } else {
+          state[q] = btn.textContent;
+          group.querySelectorAll('.opt').forEach(function(b){ b.classList.remove('on'); });
+          btn.classList.add('on');
+        }
+        var blk = btn.closest('.qblock');
+        if(blk) blk.classList.remove('miss');
+        paint();
+      });
     });
-    mount.appendChild(row);
   });
-  document.getElementById('wifiCross').innerHTML =
-    'This is the DIY version of the <b>security check</b> included in every Watchdog visit — visual only, we never touch your settings.';
+
+  /* ---------- pricing ---------- */
+  function unitCount(){
+    return TYPES.reduce(function(s,t){ return s + state.counts[t[0]]; }, 0);
+  }
+  function price(){
+    var n = unitCount();
+    var has = state.services;
+    var mo = 0, tier = '';
+    if(has.cover){
+      if(n <= CONFIG.TIER1_UNITS){ mo = CONFIG.TIER1; tier = 'bi-monthly'; }
+      else if(n < CONFIG.TIER2_UNITS){ mo = CONFIG.TIER1 + (n - CONFIG.TIER1_UNITS) * CONFIG.EXTRA_PER_UNIT; tier = 'bi-monthly'; }
+      else { mo = CONFIG.TIER2 + (n - CONFIG.TIER2_UNITS) * CONFIG.EXTRA_PER_UNIT; tier = 'monthly'; }
+    }
+    var once = has.audit ? CONFIG.AUDIT : 0;
+    return {n:n, mo:mo, once:once, tier:tier,
+            freq: tier === 'monthly' ? 'monthly visits' : 'visits every 2 months',
+            hasCover:has.cover, hasAudit:has.audit};
+  }
+  function gbp(x){ return '£' + Math.round(x).toLocaleString('en-GB'); }
+  function gbp2(x){ var v = Math.round(x * 100) / 100; return '£' + (v % 1 === 0 ? v.toLocaleString('en-GB') : v.toFixed(2)); }
+
+  /* ---------- live offer bar ---------- */
+  function offerHTML(p){
+    if(!p.hasCover && !p.hasAudit){
+      return '<div class="bx">%</div><div><b>One decision:</b> Watchdog Cold Chain Cover from <b>£30/month</b> — the scan, the emailed Logbook, QR tags, door wipe + spray, reminders and your savings page, everything included. Or the <b>£95 one-off audit</b> to start.</div>';
+    }
+    if(p.hasAudit && !p.hasCover){
+      return '<div class="bx">✓</div><div><b>Good start — now keep it that way.</b> Add Watchdog Cover and your fridges never go unchecked again: from <b>£30/month</b> — every visit scans and reports, and the Logbook, QR tags and reminders run all year.</div>';
+    }
+    if(p.hasCover && !p.hasAudit){
+      return '<div class="bx">✓</div><div><b>Want the deep-dive first?</b> The <b>£95 Full Cold Chain Audit</b> — same scan of every unit, each fault costed in £/month, Logbook for a year included. <b>Find nothing, pay nothing.</b></div>';
+    }
+    return '<div class="bx">✓</div><div><b>The strongest start:</b> the £95 audit maps every fault on day one — then Watchdog Cover keeps it that way, with the same-day report, Logbook and security check on every visit.</div>';
+  }
+
+  /* ---------- question visibility (only for chosen services) ---------- */
+  function syncQuestions(){
+    var visiting = state.services.cover || state.services.audit;
+    $('qThermal1').classList.toggle('hide', !visiting);
+    $('qThermal2').classList.toggle('hide', !visiting);
+    $('qSec1').classList.toggle('hide', !state.services.cover);
+    $('qLog1').classList.toggle('hide', !state.services.cover);
+  }
+
+  /* ---------- paint (units, dock, totals) ---------- */
+  function paint(){
+    syncQuestions();
+    document.querySelectorAll('.cnt').forEach(function(c){ c.textContent = state.counts[c.dataset.t]; });
+    var p = price();
+
+    $('unitTotal').innerHTML = p.n === 0
+      ? 'Tap <b style="font-family:inherit;font-size:1rem;">+</b> to add your units.'
+      : '<b>' + p.n + '</b> unit' + (p.n>1?'s':'') +
+        (p.hasCover ? ' · Watchdog Cover ' + gbp(p.mo) + '/mo · ' + p.freq : '');
+
+    var bits = [];
+    if(p.mo > 0) bits.push('<b>' + gbp2(p.mo) + '/mo</b>');
+    if(p.once > 0) bits.push(gbp(p.once) + ' on the day');
+    $('dockTotal').innerHTML = bits.length ? bits.join(' · ') : 'Select a service';
+    $('bundle').innerHTML = offerHTML(p);
+    $('bundle').classList.add('show');
+  }
+
+  /* ---------- navigation ---------- */
+  function show(n){
+    step = n;
+    for(var i=1;i<=LAST;i++){ $('step'+i).classList.toggle('on', i===n); }
+    var ps = document.querySelectorAll('.pstep');
+    ps.forEach(function(el,i){
+      el.classList.toggle('done', i < n-1);
+      el.classList.toggle('now', i === n-1);
+      el.querySelector('.bar i').style.width = (i <= n-1 ? 100 : 0) + '%';
+    });
+    $('backBtn').style.visibility = n === 1 ? 'hidden' : 'visible';
+    $('nextBtn').textContent = n === LAST-1 ? 'See my plan' : 'Continue';
+    $('dock').classList.toggle('off', n === LAST);
+    hideErrs();
+    window.scrollTo({top:0, behavior:'smooth'});
+    if(n === LAST) buildSummary();
+  }
+  function hideErrs(){ $('err1').style.display='none'; $('err2').style.display='none'; $('err3').style.display='none'; }
+
+  $('nextBtn').addEventListener('click', function(){
+    hideErrs();
+    if(step === 1){
+      var any = state.services.cover || state.services.audit;
+      if(!any){ $('err1').style.display='block'; return; }
+      show(2);
+    } else if(step === 2){
+      if(unitCount() < 1){ $('err2').style.display='block'; return; }
+      show(3);
+    } else if(step === 3){
+      var unanswered = [];
+      document.querySelectorAll('.qblock').forEach(function(blk){
+        if(blk.classList.contains('hide')) return;
+        var grp = blk.querySelector('.opts');
+        if(!grp) return;
+        var v = state[grp.dataset.q];
+        var ok = Array.isArray(v) ? v.length > 0 : v !== '';
+        blk.classList.toggle('miss', !ok);
+        if(!ok) unanswered.push(blk);
+      });
+      if(unanswered.length){
+        $('err3').style.display = 'block';
+        unanswered[0].scrollIntoView({behavior:'smooth', block:'center'});
+        return;
+      }
+      show(4);
+    }
+  });
+  $('backBtn').addEventListener('click', function(){ if(step > 1) show(step-1); });
+  $('editBtn').addEventListener('click', function(){ show(1); });
+
+  /* ---------- summary ---------- */
+  function join(arr){ return arr && arr.length ? arr.join(', ') : ''; }
+  function buildSummary(){
+    var p = price();
+    var lines = [];
+    if(p.hasCover){
+      var math;
+      if(p.n <= CONFIG.TIER1_UNITS){ math = '£' + CONFIG.TIER1 + ' covers your first ' + CONFIG.TIER1_UNITS + ' fridges'; }
+      else if(p.n < CONFIG.TIER2_UNITS){ math = '£' + CONFIG.TIER1 + ' (first ' + CONFIG.TIER1_UNITS + ') + ' + (p.n - CONFIG.TIER1_UNITS) + ' × £' + CONFIG.EXTRA_PER_UNIT; }
+      else { math = (p.n === CONFIG.TIER2_UNITS)
+        ? '£' + CONFIG.TIER2 + ' covers your first ' + CONFIG.TIER2_UNITS + ' fridges'
+        : '£' + CONFIG.TIER2 + ' (first ' + CONFIG.TIER2_UNITS + ') + ' + (p.n - CONFIG.TIER2_UNITS) + ' × £' + CONFIG.EXTRA_PER_UNIT; }
+      var perks = p.tier === 'monthly'
+        ? 'SMS + email reminders · traffic light report'
+        : 'email reminders · maintenance page (DIY or book us)';
+      lines.push({n:'Watchdog Cold Chain Cover — ' + math + ' · ' + p.freq + ' · full thermal scan, seal/gasket &amp; condenser check, same-day photo report, door wipe + spray · Logbook emailed monthly (backed up) · QR code on every fridge · ' + perks, v:gbp(p.mo) + '/mo'});
+    }
+    if(p.hasAudit){
+      lines.push({n:'Full Cold Chain Audit — one-off: every unit scanned &amp; photographed, each fault costed in £/month, engineer sheet · Digital Logbook for 12 months included', v:gbp(p.once)});
+    }
+    $('sumServices').innerHTML = lines.map(function(l){
+      return '<div class="sline' + (l.save ? ' save' : '') + '"><span class="n">' + l.n + '</span><span class="v' + (l.free ? ' free' : '') + '">' + l.v + '</span></div>';
+    }).join('');
+    $('sumUnits').textContent = p.n + (state.makes ? ' · ' + state.makes : '');
+
+    var det = [];
+    if(state.oldest) det.push({n:'Oldest unit', v:state.oldest});
+    if(join(state.noticed)) det.push({n:'Noticed', v:join(state.noticed)});
+    if(state.wifi) det.push({n:'Card machine on main Wi-Fi', v:state.wifi});
+    if(state.logging) det.push({n:'Logging today', v:state.logging});
+    $('sumDetails').innerHTML = det.map(function(l){
+      return '<div class="sline"><span class="n">' + l.n + '</span><span class="v">' + l.v + '</span></div>';
+    }).join('');
+
+    $('priceMonthly').textContent = p.hasCover ? gbp(p.mo) + '/mo' : '—';
+    $('priceOnDay').textContent = p.once > 0 ? (p.hasCover ? 'plus ' : '') + gbp(p.once) + (p.hasCover ? ' on the day' : ' one-off') : '';
+    $('priceNote').textContent = p.hasCover
+      ? p.freq + '. No contract — cancel anytime.'
+      : 'One-off. Find nothing, pay nothing.';
+    $('recap').innerHTML = 'We only scan and report — never repair, never touch your network. ' +
+      (p.hasAudit ? 'If the audit finds nothing worth acting on, you pay nothing for it.' : '');
+    $('guarantee').style.display = p.hasAudit ? 'flex' : 'none';
+  }
+
+  /* ---------- plan text, copy, send ---------- */
+  function buildPlanText(){
+    var p = price();
+    return 'GCM Thermal — my plan\n' +
+      'Services: ' + Object.keys(state.services).filter(function(k){return state.services[k];}).map(function(k){return SVC_NAMES[k];}).join(', ') + '\n' +
+      (p.hasCover ? 'Monthly: ' + gbp(p.mo) + '/mo (' + p.freq + ', ' + p.n + ' units)\n' : '') +
+      (p.once > 0 ? 'One-off: ' + gbp(p.once) + '\n' : '') +
+      'Units: ' + p.n + (state.makes ? '\nMakes/models: ' + state.makes : '') +
+      (state.oldest ? '\nOldest unit: ' + state.oldest : '') +
+      (join(state.noticed) ? '\nNoticed: ' + join(state.noticed) : '') +
+      (state.wifi ? '\nCard machine on main Wi-Fi: ' + state.wifi : '') +
+      (state.logging ? '\nLogging today: ' + state.logging : '') + '\n' +
+      'Name: ' + $('cName').value + '\nBusiness: ' + $('cBiz').value +
+      '\nPhone: ' + $('cPhone').value + '\nEmail: ' + $('cEmail').value + '\nPostcode: ' + $('cPost').value +
+      '\nBest time: ' + $('cTime').value;
+  }
+  function setStatus(msg, hide){
+    var c = $('copied'); c.textContent = msg; c.style.display = 'block';
+    if(hide) setTimeout(function(){ c.style.display = 'none'; }, 3000);
+  }
+  function fallbackCopy(txt, done){
+    var ta = document.createElement('textarea'); ta.value = txt;
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){}
+    document.body.removeChild(ta);
+  }
+  $('copyBtn').addEventListener('click', function(){
+    var txt = buildPlanText();
+    function done(){ setStatus('Copied — paste it into a text or email.', true); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallbackCopy(txt, done); });
+    } else fallbackCopy(txt, done);
+  });
+  $('sendBtn').addEventListener('click', function(){
+    var bad = false;
+    [$('cName'), $('cPhone'), $('cEmail')].forEach(function(i){ i.classList.remove('invalid'); });
+    if(!$('cName').value.trim()){ $('cName').classList.add('invalid'); bad = true; }
+    var noContact = !$('cPhone').value.trim() && !$('cEmail').value.trim();
+    if(noContact){ $('cPhone').classList.add('invalid'); $('cEmail').classList.add('invalid'); }
+    if(bad || noContact){
+      setStatus('Add your name' + (noContact ? ' and a phone number or email' : '') + ', then send.', false);
+      return;
+    }
+    if(!CONFIG.FORMSPREE_ID){
+      var txt = buildPlanText();
+      function fb(){ setStatus('Formspree isn\'t connected yet — your plan is copied instead. Paste it into a text or email.', false); }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(fb, function(){ fallbackCopy(txt, fb); }); }
+      else fallbackCopy(txt, fb);
+      return;
+    }
+    var p = price();
+    var btn = this;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    fetch('https://formspree.io/f/' + CONFIG.FORMSPREE_ID, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New plan — ' + ($('cBiz').value.trim() || $('cName').value.trim() || 'plan builder'),
+        name: $('cName').value,
+        business: $('cBiz').value,
+        phone: $('cPhone').value,
+        email: $('cEmail').value,
+        postcode: $('cPost').value,
+        best_time: $('cTime').value,
+        services: Object.keys(state.services).filter(function(k){return state.services[k];}).map(function(k){return SVC_NAMES[k];}).join(', '),
+        units: p.n,
+        makes_models: state.makes,
+        monthly: p.hasCover ? gbp(p.mo) + '/mo (' + p.freq + ')' : 'none',
+        one_off: p.once > 0 ? gbp(p.once) : 'none',
+        answers: [state.oldest ? 'Oldest: ' + state.oldest : '',
+                  join(state.noticed) ? 'Noticed: ' + join(state.noticed) : '',
+                  state.wifi ? 'Card machine on main Wi-Fi: ' + state.wifi : '',
+                  state.logging ? 'Logging: ' + state.logging : ''].filter(Boolean).join(' · '),
+        plan: buildPlanText()
+      })
+    }).then(function(r){
+      if(r.ok){
+        setStatus('Sent ✓ — I\'ll get back to you within a day. Your plan is on screen and copied as a backup.', false);
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(buildPlanText()).catch(function(){});
+        }
+        btn.disabled = false; btn.textContent = 'Send my plan';
+        return;
+      }
+      return r.json().catch(function(){ return {}; }).then(function(err){
+        throw {detail: (err && (err.error || err.message)) || 'HTTP ' + r.status};
+      });
+    }).catch(function(e){
+      var d = e && e.detail ? ' (' + e.detail + ')' : '';
+      setStatus('Couldn\'t send' + d + ' — tap "Copy my plan" and text it to me instead.', false);
+      btn.disabled = false; btn.textContent = 'Send my plan';
+    });
+  });
+
+  /* ---------- init ---------- */
+  if(location.hash === '#demo'){
+    state.services.cover = true; state.services.audit = true;
+    document.querySelector('[data-svc="cover"]').classList.add('sel');
+    document.querySelector('[data-svc="audit"]').classList.add('sel');
+    document.querySelector('[data-svc="cover"]').setAttribute('aria-pressed','true');
+    document.querySelector('[data-svc="audit"]').setAttribute('aria-pressed','true');
+    $('bundle').classList.add('show');
+    state.counts['Walk-in freezer'] = 2; state.counts['Upright fridge'] = 2; state.counts['Under-counter'] = 2;
+    state.oldest = '10+ years'; state.wifi = 'Not sure'; state.logging = 'Paper clipboard';
+    $('makes').value = '2× Dixell walk-ins, Foster upright 2019';
+  }
+  paint();
 })();
-
-/* SOS steps */
-
-/* SOS steps */
-document.getElementById('sosList').innerHTML =
-  SOS.map((s, i) => '<div class="sos-step"><span class="n">' + (i + 1) + '</span><div class="t">' + s.t + '</div><div class="d">' + s.d + '</div></div>').join('');
-
-/* ---------- header / links ---------- */
-document.getElementById('brandName').textContent = CONFIG.business;
-const telHref = 'tel:' + CONFIG.phone.replace(/\s/g, '');
-const hdrTel = document.getElementById('hdrTel');
-hdrTel.href = telHref; hdrTel.textContent = '📞 ' + CONFIG.phone;
-document.getElementById('textUs').href = 'sms:' + CONFIG.phone.replace(/\s/g, '') + '?body=Unit%20down%20—%20need%20advice';
-document.getElementById('dailyCross').querySelector('a').href = CONFIG.bookingLink;
-document.getElementById('bookUsLink').href = 'sms:' + CONFIG.phone.replace(/\s/g, '') + '?body=Hi%2C%20add%20a%20small%20job%20to%20my%20next%20Watchdog%20visit%3A%20';
-document.getElementById('siteFoot').innerHTML =
-  CONFIG.business + ' — thermal screening &amp; network checks for commercial fridges and freezers. We don\'t sell parts, we don\'t do repairs: independent by design. ' +
-  'Informational guidance only — follow your food-safety management system and your engineer\'s advice. Nothing you tick on this page leaves your phone.';
-
-/* ---------- engineer number ---------- */
-const engSetup = document.getElementById('engSetup'), engInput = document.getElementById('engInput'), callEng = document.getElementById('callEng');
-function paintEng(){
-  const n = store.get('ss_engineer', '');
-  if (n){ callEng.href = 'tel:' + n; callEng.textContent = '📞 Call my engineer'; callEng.style.opacity = 1; engInput.value = n; }
-  else  { callEng.removeAttribute('href'); callEng.textContent = '📞 Call my engineer — set number ↓'; callEng.style.opacity = .55; }
-}
-paintEng();
-document.getElementById('setEngBtn').addEventListener('click', () => {
-  engSetup.style.display = engSetup.style.display === 'none' ? 'block' : 'none';
-});
-let engTimer;
-engInput.addEventListener('input', () => {
-  clearTimeout(engTimer);
-  engTimer = setTimeout(() => { store.set('ss_engineer', engInput.value.trim()); paintEng(); }, 300);
-});
-
-/* ---------- tabs ---------- */
-document.querySelectorAll('.tabbar button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tabbar button').forEach(b => b.classList.remove('on'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('on'));
-    btn.classList.add('on');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('on');
-    window.scrollTo({ top: 0 });
-    if (btn.dataset.tab === 'card') fitCard();
-  });
-});
-
-/* ============================================================
-   PRINTED CARD — rendered from the same lists
-   ============================================================ */
-function esc(s){ return s.replace(/<[^>]*>/g, ''); }
-function buildPrintCard(){
-  const qr = CONFIG.qrImage
-    ? '<img src="' + CONFIG.qrImage + '" alt="QR">'
-    : (CONFIG.pageUrl || 'Point the QR at this page once hosted');
-  return '' +
-  '<div id="printCard">' +
-    '<div class="pc-head">' +
-      '<div class="t"><small>' + CONFIG.business + ' · stick this on the walk-in door</small>STOCK SAVER CARD</div>' +
-      '<div class="tel">' + CONFIG.phone + '<small>thermal screening · we don\'t sell parts</small></div>' +
-    '</div>' +
-    '<div class="pc-sos"><div class="cap">🚨 UNIT DOWN? — THE FIRST 15 MINUTES <small>in order · more time than panic says</small></div><ol>' +
-      SOS.map(s => '<li><b>' + s.t + '.</b> ' + esc(s.d) + '</li>').join('') +
-    '</ol></div>' +
-    '<div class="pc-cols">' +
-      '<div class="pc-box"><div class="cap">The daily 60-second walk-round</div><ul>' +
-        DAILY.map(d => '<li><b>' + d.t + '.</b> ' + esc(d.d) + '</li>').join('') +
-      '</ul></div>' +
-      '<div class="pc-box pc-signs"><div class="cap">5 signs it\'s about to cost you</div><ol>' +
-        SIGNS.map(s => '<li><b>' + esc(s.t) + '</b></li>').join('') +
-      '</ol><div style="font-size:7.4pt;line-height:1.45;margin-top:1.5mm;color:#444;">Weekly 5-minute check &amp; the 3 DIY router fixes live on the phone version — scan the code below.</div></div>' +
-    '</div>' +
-    '<div class="pc-foot">' +
-      '<div class="pc-qr">' + qr + '</div>' +
-      '<div class="mid"><b>Scan for the phone version</b> — emergency mode dials your own engineer, the daily ticks remember themselves, and the weekly 5-minute check is in your pocket.<br>' +
-      '<span class="book">Verification scan after any repair — book: ' + CONFIG.phone + '</span></div>' +
-    '</div>' +
-    '<div class="pc-fine">' + CONFIG.business + ' — independent thermal screening &amp; network checks. We don\'t sell parts, we don\'t do repairs, we never touch your settings. Informational guidance only — follow your food-safety management system (e.g. SFBB) and your engineer\'s advice. Hold times and temperature rules quoted are standard UK guidance.</div>' +
-  '</div>';
-}
-const mount = document.getElementById('printMount');
-mount.innerHTML = buildPrintCard();
-
-function fitCard(){
-  const card = document.getElementById('printCard');
-  const holder = document.getElementById('cardHolder');
-  if (!card || !holder) return;
-  card.style.transform = 'scale(1)';
-  const w = card.scrollWidth || 720;
-  const scale = Math.min((holder.clientWidth - 4) / w, 0.7);
-  card.style.transform = 'scale(' + scale + ')';
-  holder.style.height = Math.min(card.scrollHeight * scale + 6, 560) + 'px';
-}
-window.addEventListener('resize', fitCard);
-document.getElementById('printBtn').addEventListener('click', () => window.print());
-fitCard();
 </script>
 </body>
 </html>
